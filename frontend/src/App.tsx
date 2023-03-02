@@ -1,44 +1,59 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import "./assets/css/App.css";
-import { ExampleObj, Example } from "./components/Example";
+/**
+ * App component for overall project
+ * Can render all possible routes and always renders navbar
+ */
+
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./App.scss";
+import { HashRouter as Router, Route, Routes } from "react-router-dom";
+import { db } from "./db";
+import "draft-js/dist/Draft.css";
+
+import Nav from "./Components/Navbar";
+
+import Practice from "./Pages/Practice";
+import Statistics from "./Pages/Statistics";
+import Question from "./Pages/Question";
+
+// Used for initializing local dexie DB with fake data
+function initFakeData() {
+  const CHAPTERS = 7;
+  const MAX_LEN = 300;
+  const getRandomInt = (min: number, max: number) => {
+    const minCeil: number = Math.ceil(min);
+    const maxFloor: number = Math.floor(max);
+    return Math.floor(Math.random() * (maxFloor - minCeil) + minCeil);
+  };
+
+  if (window.localStorage.getItem("FINISHED") == null) {
+    for (let i = 0; i < 500; i += 1) {
+      const result = Math.random() < 0.5;
+      const chapter: number = Math.floor(Math.random() * CHAPTERS);
+      const len: number = getRandomInt(120, MAX_LEN);
+      const newReport = {
+        correct: result,
+        subject_id: chapter,
+        time: len,
+      } as const;
+      db.reports.add(newReport);
+      console.log(db.reports);
+    }
+    window.localStorage.setItem("FINISHED", "true");
+  }
+}
 
 function App() {
-  const [count, setCount] = useState(0);
-  const names: string[] = ["Manny", "Jasper", "Alex"];
-  const makeNewCount = (input: number) => {
-    return input + 1;
-  };
-
-  const renderNames = () => {
-    return names.map((name) => <div>{name.toLowerCase()}</div>);
-  };
-
   return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank" rel="noreferrer">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank" rel="noreferrer">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button type="button" onClick={() => setCount(makeNewCount(count))}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <Example />
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-      <div>{renderNames()}</div>
-    </div>
+    <main className="h-100">
+      <Router>
+        <Nav />
+        <Routes>
+          <Route path="/" element={<Practice />} />
+          <Route path="/statistics" element={<Statistics />} />
+          <Route path="/question" element={<Question />} />
+        </Routes>
+      </Router>
+    </main>
   );
 }
 
