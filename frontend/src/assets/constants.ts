@@ -1,3 +1,7 @@
+/**
+ * Contains constant values for the entire project
+ */
+
 export const ATOMS = "Atoms, Molecules, & Ions";
 export const QUANTUM = "Quantum Mechanics & Atomic Theory";
 export const BONDING = "Bonding: General Concepts";
@@ -19,33 +23,68 @@ export const SUBJECTS_IDX = [
   GASES,
 ];
 
-export interface SubjectProps {
-  readonly name: string;
-  readonly chapter: string;
-  readonly idx: number;
-}
+// export const SUBJECTS = {
+//   ATOMS: {
+//     chapter: "Chapter 2",
+//     title: "Atoms, Molecules, & Ions",
+//     idx: 0,
+//     color: "Primary",
+//   },
+//   QUANTUM: {
+//     chapter: "Chapter 12",
+//     title: "Quantum Mechanics & Atomic Theory",
+//     idx: 1,
+//     color: "Success",
+//   },
+//   BONDING: {
+//     chapter: "Chapter 13",
+//     title: "Bonding: General Concepts",
+//     idx: 2,
+//     color: "Danger",
+//   },
+//   STOICHIOMETRY: {
+//     chapter: "Chapter 3",
+//     title: "Stoichiometry",
+//     idx: 3,
+//     color: "Warning",
+//   },
+//   REACTIONS: {
+//     chapter: "Chapter 4",
+//     title: "Types of Chemical Reactions & Solution Stoichiometry",
+//     idx: 4,
+//     color: "Info",
+//   },
+//   KINETICS: {
+//     chapter: "Chapter 15",
+//     title: "Chemical Kinetics",
+//     idx: 5,
+//     color: "Light",
+//   },
+//   GASES: {
+//     chapter: "Chapter 5",
+//     name: "Gases",
+//     idx: 6,
+//     color: "Dark",
+//   },
+// } as const;
+// export type Subject = keyof typeof SUBJECTS;
 
-export enum SubjectsEnum {
-  Atoms,
-  Quantum,
-  Bonding,
-  Stoichiometry,
-  Reactions,
-  Kinetics,
-  Gases,
-}
+export const COLORS = {
+  ATOMS: "Primary",
+  QUANTUM: "Success",
+  BONDING: "Danger",
+  STOICHIOMETRY: "Warning",
+  REACTIONS: "Info",
+  KINETICS: "Light",
+  GASES: "Dark",
+};
 
-export enum SubjectChapters {
-  Atoms = "Chapter 2",
-  Quantum = "Chapter 12",
-  Bonding = "Chapter 13"
-}
-
-export const SUBJECTS: { [name: string]: SubjectProps } = {
+export const SUBJECTS = {
   ATOMS: {
     chapter: "Chapter 2",
     name: ATOMS,
     idx: 0,
+    color: "Primary",
   },
   QUANTUM: {
     chapter: "Chapter 12",
@@ -77,16 +116,6 @@ export const SUBJECTS: { [name: string]: SubjectProps } = {
     name: GASES,
     idx: 6,
   },
-};
-
-export const COLORS = {
-  ATOMS: "Primary",
-  QUANTUM: "Success",
-  BONDING: "Danger",
-  STOICHIOMETRY: "Warning",
-  REACTIONS: "Info",
-  KINETICS: "Light",
-  GASES: "Dark",
 };
 
 export const LETTERS = ["A", "B", "C", "D", "E"];
