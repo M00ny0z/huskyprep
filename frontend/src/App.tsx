@@ -4,7 +4,7 @@
  */
 
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./App.scss";
+import "./assets/styling/App.scss";
 import { HashRouter as Router, Route, Routes } from "react-router-dom";
 import { db } from "./db";
 import "draft-js/dist/Draft.css";
@@ -13,7 +13,6 @@ import Nav from "./Components/Navbar";
 
 import Practice from "./Pages/Practice";
 import Statistics from "./Pages/Statistics";
-import Question from "./Pages/Question";
 
 // Used for initializing local dexie DB with fake data
 function initFakeData() {
@@ -50,7 +49,6 @@ function App() {
         <Routes>
           <Route path="/" element={<Practice />} />
           <Route path="/statistics" element={<Statistics />} />
-          <Route path="/question" element={<Question />} />
         </Routes>
       </Router>
     </main>
