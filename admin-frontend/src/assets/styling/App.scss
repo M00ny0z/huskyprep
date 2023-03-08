@@ -1,0 +1,115 @@
+// 3. Include remainder of required Bootstrap stylesheets
+@import "../node_modules/bootstrap/scss/functions";
+@import "../node_modules/bootstrap/scss/variables";
+
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.navbar {
+  background-color: #6f42c1;
+}
+
+.navbar-item:hover, .navbar-item.selected {
+  background-color: #ffffff;
+  cursor: pointer;
+}
+
+.navbar-item {
+  background-color: #6f42c1;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.navbar-item a {
+  text-decoration: none;
+  color: #000000;
+}
+
+.sub-card:hover {
+  cursor: pointer;
+}
+
+.option:hover {
+  cursor: pointer;
+  background-color: #6f42c1;
+  color: white;
+}
+
+.correct-option {
+  background-color: $success;
+  color: white;
+}
+
+.incorrect-option {
+  background-color: $danger;
+  color: white;
+}
+
+.neutral-option {
+  background-color: $light;
+  color: black;
+}
+
+.next-button {
+  background-color:#6f42c1;
+}
+
+.next-button:hover {
+  background-color: #a37ee4;
+}
+
+.problem-output table {
+  --bs-table-color: var(--bs-body-color);
+  --bs-table-bg: transparent;
+  --bs-table-border-color: var(--bs-border-color);
+  --bs-table-accent-bg: transparent;
+  --bs-table-striped-color: var(--bs-body-color);
+  --bs-table-striped-bg: rgba(0, 0, 0, 0.05);
+  --bs-table-active-color: var(--bs-body-color);
+  --bs-table-active-bg: rgba(0, 0, 0, 0.1);
+  --bs-table-hover-color: var(--bs-body-color);
+  --bs-table-hover-bg: rgba(0, 0, 0, 0.075);
+  width: 100%;
+  margin-bottom: 1rem;
+  color: var(--bs-table-color);
+  vertical-align: top;
+  border-color: var(--bs-table-border-color);
+}
+
